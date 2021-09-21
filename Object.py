@@ -47,8 +47,7 @@ class Side:
 
 
 class Object:
-    def __init__(self, center, sides): #center should be a vector2, sides should be an array of Sides
-        self.center = center
+    def __init__(self, sides): #sides should be an array of Sides
         self.sides = sides
     
     def getSidesInFOV(self, FOV): #sloped are the slopes of the edge of the FOV. FOV will naturally be 90, slopes should be -1 and 1

@@ -4,14 +4,14 @@ from Object import *
 from Render import *
 
 Objects = [
-    Object(Vector2(3, 3), [
+    Object([
         Side(Vector2(1, 2), Vector2(1,4)),
         Side(Vector2(5, 4), Vector2(1,4)),
         Side(Vector2(5, 4), Vector2(5,2)),
         Side(Vector2(1, 2), Vector2(5,2))
     ]),
 
-    Object(Vector2(0, 5), [
+    Object([
         Side(Vector2(-3, 4), Vector2(-3,6)),
         Side(Vector2(-1, 6), Vector2(-3,6)),
         Side(Vector2(-1, 6), Vector2(-1,4)),
