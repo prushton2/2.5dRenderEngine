@@ -1,9 +1,12 @@
 #This will be for objects that need to be rendered
 v = __import__("vector2")
 class Side:
-    def __init__(self, point1, point2):
+    def __init__(self, point1, point2): #point1 & 2 should be a vector2
         self.point1 = point1
         self.point2 = point2
+
+    def __repr__(self):
+        return f"Side: ({self.point1}),  ({self.point2})"
 
     def getAllPoints(self):
         x1, y1 = self.point1.x, self.point1.y
@@ -43,8 +46,16 @@ class Side:
 
 
 class Object:
-    def __init__(self, center, sides):
-        center = self.center
-        sides = self.sides
+    def __init__(self, center, sides): #center should be a vector2, sides should be an array of Sides
+        self.center = center
+        self.sides = sides
     
+    def getSidesInFOV(self, slope1, slope2): #sloped are the slopes of the edge of the FOV. FOV will naturally be 90, slopes should be -1 and 1
+        sidesToRender = []
+        for i in self.sides:
+            if(i.point1.y > slope1 * i.point1.x and i.point1.y > slope1 * i.point1.x):
+                sidesToRender.append(i)
+            elif(i.point2.y > slope1 * i.point2.x and i.point2.y > slope1 * i.point2.x):
+                sidesToRender.append(i)
+        return sidesToRender
 
