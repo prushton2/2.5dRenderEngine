@@ -26,18 +26,13 @@ def main():
     linesToRender = []
     for i in Objects:
         linesToRender += (i.getSidesInFOV(FOV))
-    # print(linesToRender)
     
     pointsToRender = []
     for i in linesToRender:
         pointsToRender += i.getAllPoints(100)
-    # print("----------------------")
-    # print(pointsToRender)
 
     renderPoints = DistanceCalculator.getAllDistances(pointsToRender)
 
-    # print("-----------------------")
-    # print(renderPoints)
 
     renderer = Render(renderPoints)
     renderer.render(400)
