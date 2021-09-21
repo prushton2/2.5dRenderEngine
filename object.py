@@ -1,5 +1,4 @@
 #This will be for objects that need to be rendered
-v = __import__("vector2")
 class Side:
     def __init__(self, point1, point2): #point1 & 2 should be a vector2
         self.point1 = point1
