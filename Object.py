@@ -9,9 +9,9 @@ class Side:
     def __repr__(self):
         return f"Side: ({self.point1}),  ({self.point2})"
 
-    def getAllPoints(self):
-        x1, y1 = self.point1.x, self.point1.y
-        x2, y2 = self.point2.x, self.point2.y
+    def getAllPoints(self, resolution):
+        x1, y1 = resolution*self.point1.x, resolution*self.point1.y
+        x2, y2 = resolution*self.point2.x, resolution*self.point2.y
         points = []
         issteep = abs(y2-y1) > abs(x2-x1)
         if issteep:
@@ -33,9 +33,9 @@ class Side:
             ystep = -1
         for x in range(x1, x2 + 1):
             if issteep:
-                points.append(Vector2(y, x))
+                points.append(Vector2(y/resolution, x/resolution))
             else:
-                points.append(Vector2(x, y))
+                points.append(Vector2(x/resolution, y/resolution))
             error -= deltay
             if error < 0:
                 y += ystep
