@@ -11,14 +11,15 @@ class Render():
 
         t.left(90)
         t.speed("fastest")
+        #NEED TO CHANGE HOW THESE VARS WORK
 
         tl.tracer(0,0)
 
-        for i in range(100):
-            x = i
-            t.goto(i, 0)
-            t.fd(x)
-            t.back(2*x)
+        for i in self.distances:
+            t.goto(i[1], 0)
+            size = (1 / i[0]) * 200
+            t.fd(size/2)
+            t.back(size)
 
         tl.update()
         tl.done()
