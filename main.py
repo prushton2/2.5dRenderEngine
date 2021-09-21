@@ -12,10 +12,10 @@ Objects = [
     ]),
 
     Object(Vector2(0, 5), [
-        Side(Vector2(-1, 4), Vector2(-1,6)),
-        Side(Vector2(1, 6), Vector2(-1,6)),
-        Side(Vector2(1, 6), Vector2(-1,6)),
-        Side(Vector2(-1, 4), Vector2(-1,6))
+        Side(Vector2(-3, 4), Vector2(-3,6)),
+        Side(Vector2(-1, 6), Vector2(-3,6)),
+        Side(Vector2(-1, 6), Vector2(-1,4)),
+        Side(Vector2(-3, 4), Vector2(-1,4))
     ])
 ]
 
