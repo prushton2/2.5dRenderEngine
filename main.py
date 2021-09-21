@@ -30,7 +30,7 @@ def main():
     
     pointsToRender = []
     for i in linesToRender:
-        pointsToRender += i.getAllPoints(10)
+        pointsToRender += i.getAllPoints(100)
     # print("----------------------")
     # print(pointsToRender)
 
@@ -40,7 +40,7 @@ def main():
     # print(renderPoints)
 
     renderer = Render(renderPoints)
-    renderer.render()
+    renderer.render(400)
 
 
 
