@@ -46,7 +46,5 @@ class Object:
     def __init__(self, center, sides):
         center = self.center
         sides = self.sides
+    
 
-
-s1 = Side(v.Vector2(1, 0), v.Vector2(2, 4))
-print(s1.getAllPoints())
