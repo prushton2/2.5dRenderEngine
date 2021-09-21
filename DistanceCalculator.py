@@ -1,7 +1,3 @@
-v = __import__("vector2")
-import math
-
-
 
 class DistanceCalculator:
 
@@ -12,12 +8,13 @@ class DistanceCalculator:
     #the triangle is made and can ensure the angle is the angle from the center of the camera.
     @staticmethod
     def getDistanceToCamera(point1):
-        sideA = math.abs(point1.x)
-        sideB = math.abs(point1.y)
+        import math
+        sideA = abs(point1.x)
+        sideB = abs(point1.y)
 
-        sideC = .5 ** (sideA**2 + sideB**2)
+        sideC = ((sideA**2) + (sideB**2)) ** 0.5
 
-        angle = math.asin(sideA/sideC)
+        angle = math.degrees(math.asin(sideA/sideC))
 
         angle = -1*angle if point1.x < 0 else angle #Make it negative if the point is on the left
 
@@ -28,3 +25,4 @@ class DistanceCalculator:
         for i in points:
             dist, angle = DistanceCalculator.getDistanceToCamera(i)
             distances.append([dist, angle])
+        return distances
