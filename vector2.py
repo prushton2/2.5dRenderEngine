@@ -7,7 +7,7 @@ class Vector2:
         self.y = y
     
     def __repr__(self):
-        return f"Object: {self.x}, {self.y}"
+        return f"Vector2: {self.x}, {self.y}"
 
     def __add__(self, other):
         return Vector2(self.x + other.x, self.y + other.y)
