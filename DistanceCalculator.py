@@ -16,13 +16,13 @@ class DistanceCalculator:
 
         angle = math.degrees(math.asin(sideA/sideC))
 
-        angle = -1*angle if point.x < 0 else angle #Make it negative if the point is on the left
+        angle = -1*angle if point.x < camera.x else angle #Make it negative if the point is on the left
 
         return sideC, angle
     @staticmethod
-    def getAllDistances(points): #returns a 2d array containing all distances and angles when given points
+    def getAllDistances(points, cameraPos): #returns a 2d array containing all distances and angles when given points
         distances = []
         for i in points:
-            dist, angle = DistanceCalculator.getDistanceToCamera(i, Vector2(0, 0))
+            dist, angle = DistanceCalculator.getDistanceToCamera(i, cameraPos)
             distances.append([dist, angle])
         return distances
