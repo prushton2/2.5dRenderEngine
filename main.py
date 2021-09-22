@@ -21,6 +21,8 @@ Objects = [
     ])
 ]
 cameraPos = Vector2(0, 0)
+cameraAngle = 0
+
 FOV = (-1, 1)
 
 def main():
@@ -34,6 +36,8 @@ def main():
 
 def renderScreen(event):
     global cameraPos
+
+    print(cameraPos)
     print(event.char)
 
     if(event.char == "w"):
