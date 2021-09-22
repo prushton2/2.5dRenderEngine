@@ -64,7 +64,7 @@ class Object:
         distance, angle = DistanceCalculator.getDistanceToCamera(point, cameraPos)
         if(cameraAngle + FOV[0] < angle < cameraAngle + FOV[1]):
             return True
-        elif (cameraAngle + FOV[0] < angle < 361):
+        elif (cameraAngle + FOV[0] < angle < 360):
             return True
         elif (cameraAngle + FOV[1] > angle > 0):
             return True
