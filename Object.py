@@ -1,6 +1,13 @@
 #This will be for objects that need to be rendered
 from Vector2 import *
 from DistanceCalculator import *
+
+class Camera:
+    def __init__(self, cameraPos, cameraAngle, fov):
+        self.pos = cameraPos
+        self.angle = cameraAngle
+        self.fov = fov
+
 class Side:
     def __init__(self, point1, point2): #point1 & 2 should be a vector2
         self.point1 = point1
