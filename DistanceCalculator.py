@@ -1,4 +1,4 @@
-
+from Vector2 import *
 class DistanceCalculator:
 
     #I am creating a right triangle to determine the distance from origin to the given point.
@@ -7,22 +7,22 @@ class DistanceCalculator:
     #If I use the X differences as the opposite side of theta, that side has to be opposite of theta. This means I know how
     #the triangle is made and can ensure the angle is the angle from the center of the camera.
     @staticmethod
-    def getDistanceToCamera(point1):
+    def getDistanceToCamera(point, camera): #Both values should be Vector2
         import math
-        sideA = abs(point1.x)
-        sideB = abs(point1.y)
+        sideA = abs(point.x - camera.x)
+        sideB = abs(point.y - camera.y)
 
         sideC = ((sideA**2) + (sideB**2)) ** 0.5
 
         angle = math.degrees(math.asin(sideA/sideC))
 
-        angle = -1*angle if point1.x < 0 else angle #Make it negative if the point is on the left
+        angle = -1*angle if point.x < 0 else angle #Make it negative if the point is on the left
 
         return sideC, angle
     @staticmethod
     def getAllDistances(points): #returns a 2d array containing all distances and angles when given points
         distances = []
         for i in points:
-            dist, angle = DistanceCalculator.getDistanceToCamera(i)
+            dist, angle = DistanceCalculator.getDistanceToCamera(i, Vector2(0, 0))
             distances.append([dist, angle])
         return distances
