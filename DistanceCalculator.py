@@ -9,8 +9,8 @@ class DistanceCalculator:
     @staticmethod
     def getDistanceToCamera(point, camera): #Both values should be Vector2
         import math
-        sideA = abs(point.x - camera.x)
-        sideB = abs(point.y - camera.y)
+        sideA = abs(point.x - camera.pos.x)
+        sideB = abs(point.y - camera.pos.y)
 
         sideC = ((sideA**2) + (sideB**2)) ** 0.5
 
@@ -23,9 +23,9 @@ class DistanceCalculator:
 
         return sideC, angle
     @staticmethod
-    def getAllDistances(points, cameraPos): #returns a 2d array containing all distances and angles when given points
+    def getAllDistances(points, camera): #returns a 2d array containing all distances and angles when given points
         distances = []
         for i in points:
-            dist, angle = DistanceCalculator.getDistanceToCamera(i, cameraPos)
+            dist, angle = DistanceCalculator.getDistanceToCamera(i, camera)
             distances.append([dist, angle])
         return distances
