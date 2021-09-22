@@ -20,7 +20,7 @@ Objects = [
         Side(Vector2(-3, 4), Vector2(-1,4))
     ])
 ]
-cameraPos = Vector2(0, 0)
+cameraPos = Vector2(0, -1)
 cameraAngle = 0
 
 FOV = (-45, 45)
@@ -29,8 +29,6 @@ def main():
 
     root = Tk()
     root.geometry('300x200')
-    text = Text(root, background='black', foreground='white', font=('Comic Sans MS', 12))
-    text.pack()
     root.bind('<KeyPress>', renderScreen)
     root.mainloop()
 
@@ -51,7 +49,7 @@ def renderScreen(event):
 
     linesToRender = []
     for i in Objects:
-        linesToRender += (i.getSidesInFOV(FOV))
+        linesToRender += (i.getSidesInFOV(FOV, cameraPos, cameraAngle))
     
     pointsToRender = []
     for i in linesToRender:
