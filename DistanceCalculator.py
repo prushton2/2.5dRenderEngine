@@ -9,8 +9,8 @@ class DistanceCalculator:
     @staticmethod
     def getDistanceToCamera(point, camera): #Both values should be Vector2
         import math
-        sideA = abs(point.x - camera.pos.x)
-        sideB = abs(point.y - camera.pos.y)
+        sideA = abs(point.x - camera.x)
+        sideB = abs(point.y - camera.y)
 
         sideC = ((sideA**2) + (sideB**2)) ** 0.5
 
