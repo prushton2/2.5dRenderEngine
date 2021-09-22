@@ -57,23 +57,23 @@ class Object:
     def __init__(self, sides): #sides should be an array of Sides
         self.sides = sides
     
-    def getSidesInFOV(self, FOV, cameraPos, cameraAngle): #sloped are the slopes of the edge of the FOV. FOV will naturally be 90, slopes should be -1 and 1
+    def getSidesInFOV(self, camera): #sloped are the slopes of the edge of the FOV. FOV will naturally be 90, slopes should be -1 and 1
         sidesToRender = []
-        slope1 = FOV[0]
-        slope1 = FOV[1]
+        slope1 = camera.fov[0]
+        slope1 = camera.fov[1]
         for i in self.sides:
-            if(self.isPointInFov(FOV, cameraPos, cameraAngle, i.point1) or self.isPointInFov(FOV, cameraPos, cameraAngle, i.point2)):
+            if(self.isPointInFov(camera.fov, camera.pos, camera.angle, i.point1) or self.isPointInFov(camera.fov, camera.pos, camera.angle, i.point2)):
                 sidesToRender.append(i)
 
         return sidesToRender
     
-    def isPointInFov(self, FOV, cameraPos, cameraAngle, point):
-        distance, angle = DistanceCalculator.getDistanceToCamera(point, cameraPos)
-        if(cameraAngle + FOV[0] < angle < cameraAngle + FOV[1]):
+    def isPointInFov(self, camera, point):
+        distance, angle = DistanceCalculator.getDistanceToCamera(point, camera.pos)
+        if(camera.angle + camera.fov[0] < angle < camera.angle + camera.fov[1]):
             return True
-        elif (cameraAngle + FOV[0] < angle < 360):
+        elif (camera.angle + camera.fov[0] < angle < 360):
             return True
-        elif (cameraAngle + FOV[1] > angle > 0):
+        elif (camera.angle + camera.fov[1] > angle > 0):
             return True
 
 
