@@ -9,8 +9,7 @@ class Render():
         s = tl.getscreen()
         t = tl.Turtle()
 
-        t.clear()
-
+        s.clearscreen()
         t.left(90)
         t.speed("fastest")
         #NEED TO CHANGE HOW THESE VARS WORK
