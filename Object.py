@@ -1,6 +1,6 @@
 #This will be for objects that need to be rendered
 from Vector2 import *
-
+from DistanceCalculator import *
 class Side:
     def __init__(self, point1, point2): #point1 & 2 should be a vector2
         self.point1 = point1
@@ -50,14 +50,24 @@ class Object:
     def __init__(self, sides): #sides should be an array of Sides
         self.sides = sides
     
-    def getSidesInFOV(self, FOV): #sloped are the slopes of the edge of the FOV. FOV will naturally be 90, slopes should be -1 and 1
+    def getSidesInFOV(self, FOV, cameraPos, cameraAngle): #sloped are the slopes of the edge of the FOV. FOV will naturally be 90, slopes should be -1 and 1
         sidesToRender = []
         slope1 = FOV[0]
         slope1 = FOV[1]
         for i in self.sides:
-            if(i.point1.y > slope1 * i.point1.x and i.point1.y > slope1 * i.point1.x):
+            if(self.isPointInFov(FOV, cameraPos, cameraAngle, i.point1) or self.isPointInFov(FOV, cameraPos, cameraAngle, i.point2)):
                 sidesToRender.append(i)
-            elif(i.point2.y > slope1 * i.point2.x and i.point2.y > slope1 * i.point2.x):
-                sidesToRender.append(i)
+
         return sidesToRender
+    
+    def isPointInFov(self, FOV, cameraPos, cameraAngle, point):
+        distance, angle = DistanceCalculator.getDistanceToCamera(point, cameraPos)
+        if(cameraAngle + FOV[0] < angle < cameraAngle + FOV[1]):
+            return True
+        elif (cameraAngle + FOV[0] < angle < 361):
+            return True
+        elif (cameraAngle + FOV[1] > angle > 0):
+            return True
+
+
 
