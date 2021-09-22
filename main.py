@@ -23,7 +23,7 @@ Objects = [
 cameraPos = Vector2(0, 0)
 cameraAngle = 0
 
-FOV = (-1, 1)
+FOV = (-45, 45)
 
 def main():
 
