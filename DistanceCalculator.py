@@ -14,6 +14,9 @@ class DistanceCalculator:
 
         sideC = ((sideA**2) + (sideB**2)) ** 0.5
 
+        if(sideC == 0):
+            sideC = 0.1
+
         angle = math.degrees(math.asin(sideA/sideC))
 
         angle = -1*angle if point.x < camera.x else angle #Make it negative if the point is on the left
