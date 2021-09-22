@@ -16,20 +16,9 @@ class Render():
 
         tl.tracer(0,0)
 
-        t.pencolor("red")
+        
 
-        t.penup()
-        t.goto(-45*(scalar/100), 0)
-        t.pendown()
-        t.fd(1000)
-        t.back(2000)
-        t.penup()
-
-        t.goto(45*(scalar/100), 0)
-        t.pendown()
-        t.fd(1000)
-        t.back(2000)
-        t.penup()
+        
 
         t.pencolor("black")
         
@@ -42,6 +31,22 @@ class Render():
             t.pendown()
             t.fd(size/2)
             t.back(size)
+
+
+        t.pencolor("red")
+        
+        t.penup()
+        t.goto(-45*(scalar/100), 0)
+        t.pendown()
+        t.fd(1000)
+        t.back(2000)
+        t.penup()
+
+        t.goto(45*(scalar/100), 0)
+        t.pendown()
+        t.fd(1000)
+        t.back(2000)
+        t.penup()
 
 
         t.penup()
