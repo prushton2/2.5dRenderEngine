@@ -62,19 +62,30 @@ class Object:
         slope1 = camera.fov[0]
         slope1 = camera.fov[1]
         for i in self.sides:
-            if(self.isPointInFov(camera.fov, camera.pos, camera.angle, i.point1) or self.isPointInFov(camera.fov, camera.pos, camera.angle, i.point2)):
+            if(self.isPointInFov(camera, i.point1) or self.isPointInFov(camera.fov, camera.pos, camera.angle, i.point2)):
                 sidesToRender.append(i)
 
         return sidesToRender
     
     def isPointInFov(self, camera, point):
         distance, angle = DistanceCalculator.getDistanceToCamera(point, camera.pos)
+        print(f"Angle: {angle}\nFOV: {camera.fov}")
         if(camera.angle + camera.fov[0] < angle < camera.angle + camera.fov[1]):
             return True
+        #Problem - Tests if the angle is greater than low FOV OR less than high FOV. Both conditions need to take other part of FOV into account, they always return true
         elif (camera.angle + camera.fov[0] < angle < 360):
             return True
         elif (camera.angle + camera.fov[1] > angle > 0):
             return True
+        return False
 
+camera = Camera(Vector2(0, 0), 90, (-45, 45))
 
+sqaure = Object([
+    Side(Vector2(1, 2), Vector2(1,4)),
+    Side(Vector2(5, 4), Vector2(1,4)),
+    Side(Vector2(5, 4), Vector2(5,2)),
+    Side(Vector2(1, 2), Vector2(5,2))
+])
 
+print(sqaure.isPointInFov(camera, Vector2(0, 1)))
