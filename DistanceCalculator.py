@@ -7,7 +7,8 @@ class DistanceCalculator:
     #If I use the X differences as the opposite side of theta, that side has to be opposite of theta. This means I know how
     #the triangle is made and can ensure the angle is the angle from the center of the camera.
     @staticmethod
-    def getDistanceToCamera(point, camera): #Both values should be Vector2
+    def getDistanceToCamera(point, camera): #Both values should be Vector2 
+        #Function tricks the renderer to render objects behind the camera. It only outputs an angle betweek -90, 90.
         import math
         sideA = abs(point.x - camera.x)
         sideB = abs(point.y - camera.y)
@@ -18,7 +19,7 @@ class DistanceCalculator:
             sideC = 0.1
 
         angle = math.degrees(math.asin(sideA/sideC))
-
+        
         angle = -1*angle if point.x < camera.x else angle #Make it negative if the point is on the left
 
         return sideC, angle
