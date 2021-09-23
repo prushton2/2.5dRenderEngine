@@ -26,6 +26,6 @@ class DistanceCalculator:
     def getAllDistances(points, camera): #returns a 2d array containing all distances and angles when given points
         distances = []
         for i in points:
-            dist, angle = DistanceCalculator.getDistanceToCamera(i, camera)
+            dist, angle = DistanceCalculator.getDistanceToCamera(i, camera.pos)
             distances.append([dist, angle])
         return distances
