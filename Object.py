@@ -91,14 +91,14 @@ class Object:
         print(f"Failed all tests")
         return False
 
-camera = Camera(Vector2(0, 0), 0, (-45, 45))
+# camera = Camera(Vector2(0, 0), 0, (-45, 45))
 
-sqaure = Object([
-    Side(Vector2(1, 2), Vector2(1,4)),
-    Side(Vector2(5, 4), Vector2(1,4)),
-    Side(Vector2(5, 4), Vector2(5,2)),
-    Side(Vector2(1, 2), Vector2(5,2))
-])
+# sqaure = Object([
+#     Side(Vector2(1, 2), Vector2(1,4)),
+#     Side(Vector2(5, 4), Vector2(1,4)),
+#     Side(Vector2(5, 4), Vector2(5,2)),
+#     Side(Vector2(1, 2), Vector2(5,2))
+# ])
 
 # print("Points between 315 and 45 should pass")
 # failedTests = []
@@ -116,4 +116,4 @@ sqaure = Object([
 # print("------------------")
 # print(failedTests)
 
-print(sqaure.isPointInFov(camera, Vector2(-1, -1)))
+# print(sqaure.isPointInFov(camera, Vector2(-1, -1)))

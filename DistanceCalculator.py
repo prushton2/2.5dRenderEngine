@@ -1,4 +1,6 @@
 from Vector2 import *
+# from Object import *
+
 class DistanceCalculator:
 
     #I am creating a right triangle to determine the distance from origin to the given point.
@@ -20,7 +22,13 @@ class DistanceCalculator:
 
         angle = math.degrees(math.asin(sideA/sideC))
         
-        angle = -1*angle if point.x < camera.x else angle #Make it negative if the point is on the left
+        relativex = camera.x - point.x
+        relativey = camera.y - point.y
+
+        if(point.x < camera.x):
+            angle += 180
+        if((relativey < 0 and relativex > 0) or (relativey > 0 and relativex < 0)):
+            angle += 90
 
         return sideC, angle
     @staticmethod
