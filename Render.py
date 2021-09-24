@@ -24,6 +24,8 @@ class Render():
 
         for i in self.distances:
             x = camera.angle + Angle(i[1])
+            x = Angle(x).toPosition()
+            # print(f"{str(camera.angle)} {str(i[1])} {str(x)}")
             t.penup()
             t.goto(x*(scalar/100), 0)
             size = (1 / i[0]) * scalar

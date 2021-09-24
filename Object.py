@@ -78,18 +78,14 @@ class Object:
         # print(f"XXXXX Camera angle: {camera.angle} Object Angle: {angle} FOV: {camera.fov} Fov Angles ({lowFov}, {highFov}) passed test: ", end = "")
 
         if(lowFov < angle and angle < highFov):
-            print(f"First Test")
             return True
         
         if(angle > lowFov and lowFov >= highFov):
-            print(f"Second Test")
             return True
 
         if(angle < highFov and highFov <= lowFov):
-            print(f"Third Test")
             return True
 
-        print(f"Failed all tests")
         return False
 
 # camera = Camera(Vector2(0, 0), 0, (-45, 45))

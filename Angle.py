@@ -4,7 +4,7 @@ class Angle():
         self.angle = angle
     
     def __repr__(self):
-        return self.angle
+        return str(self.angle)
 
     def __add__(self, other):
         return (self.angle + other.angle) % 360
@@ -17,3 +17,8 @@ class Angle():
     
     def __truediv__(self, other):
         return (self.angle / other.angle) % 360
+
+    def toPosition(self):
+        if (self.angle > 180):
+            return self.angle - 360
+        return self.angle
