@@ -21,7 +21,7 @@ class DistanceCalculator:
         if(sideC == 0):
             sideC = 0.1
 
-        angle = math.degrees(math.asin(sideA/sideC))
+        angle = math.degrees(math.asin(sideB/sideC))
 
         relativex = camera.x - point.x
         relativey = camera.y - point.y
