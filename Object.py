@@ -1,6 +1,7 @@
 #This will be for objects that need to be rendered
 from Vector2 import *
 from DistanceCalculator import *
+from Angle import *
 
 class Camera:
     def __init__(self, cameraPos, cameraAngle, fov):
@@ -69,12 +70,12 @@ class Object:
     
     def isPointInFov(self, camera, point):
         distance, angle = DistanceCalculator.getDistanceToCamera(point, camera.pos)
-        lowFov = camera.angle + camera.fov[0] if camera.angle + camera.fov[0] > -1 else camera.angle + camera.fov[0] + 360
-        highFov = camera.angle + camera.fov[1] if camera.angle + camera.fov[1] < 359 else camera.angle + camera.fov[1] - 360
-        
+        lowFov = camera.angle + Angle(camera.fov[0])
+        highFov = camera.angle + Angle(camera.fov[1])
+
         #Problem - Tests if the angle is greater than low FOV OR less than high FOV. Both conditions need to take other part of FOV into account, they always return true
         
-        print(f"XXXXX Camera angle: {camera.angle} Object Angle: {angle} FOV: {camera.fov} Fov Angles ({lowFov}, {highFov}) passed test: ", end = "")
+        # print(f"XXXXX Camera angle: {camera.angle} Object Angle: {angle} FOV: {camera.fov} Fov Angles ({lowFov}, {highFov}) passed test: ", end = "")
 
         if(lowFov < angle and angle < highFov):
             print(f"First Test")
