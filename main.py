@@ -2,6 +2,8 @@ from Vector2 import *
 from DistanceCalculator import *
 from Object import *
 from Render import *
+from Angle import *
+
 from tkinter import *
 
 

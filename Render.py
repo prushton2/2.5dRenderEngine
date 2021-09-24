@@ -1,4 +1,6 @@
 import turtle as tl
+from Angle import *
+
 #Currently plan on using turtle. Pretty fast load and it allows pixel per pixel drawing.
 class Render():
     def __init__(self, distances):

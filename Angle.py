@@ -17,5 +17,3 @@ class Angle():
     
     def __truediv__(self, other):
         return (self.angle / other.angle) % 360
-
-
