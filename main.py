@@ -22,7 +22,7 @@ Objects = [
         Side(Vector2(-3, 4), Vector2(-1,4))
     ])
 ]
-camera = Camera(Vector2(0, -1), 0, (-45, 45))
+camera = Camera(Vector2(0, -1), Angle(0), (-45, 45))
 
 def main():
 
@@ -48,6 +48,7 @@ def renderScreen(event):
     linesToRender = []
     for i in Objects:
         linesToRender += (i.getSidesInFOV(camera))
+
     
     pointsToRender = []
     for i in linesToRender:
@@ -57,7 +58,7 @@ def renderScreen(event):
 
 
     renderer = Render(renderPoints)
-    renderer.render(400)
+    renderer.render(400, camera)
 
 
 

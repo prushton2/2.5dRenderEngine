@@ -6,7 +6,7 @@ class Render():
     def __init__(self, distances):
         self.distances = distances
 
-    def render(self, scalar):
+    def render(self, scalar, camera):
 
         s = tl.getscreen()
         t = tl.Turtle()
@@ -18,17 +18,14 @@ class Render():
 
         tl.tracer(0,0)
 
-        
-
-        
-
         t.pencolor("black")
         
 
 
         for i in self.distances:
+            x = camera.angle + Angle(i[1])
             t.penup()
-            t.goto(i[1]*(scalar/100), 0)
+            t.goto(x*(scalar/100), 0)
             size = (1 / i[0]) * scalar
             t.pendown()
             t.fd(size/2)
