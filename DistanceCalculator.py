@@ -15,20 +15,28 @@ class DistanceCalculator:
         sideA = abs(point.x - camera.x)
         sideB = abs(point.y - camera.y)
 
+
         sideC = ((sideA**2) + (sideB**2)) ** 0.5
+
+        print(sideA, sideB, sideC)
 
         if(sideC == 0):
             sideC = 0.1
 
         angle = math.degrees(math.asin(sideA/sideC))
+
+        print(angle)
         
         relativex = camera.x - point.x
         relativey = camera.y - point.y
+        print(point.x, camera.x)
 
-        if(point.x < camera.x):
+        if(point.x < camera.x or (point.x == camera.x and point.y < camera.y)): #This code is problematic
             angle += 180
+            print("added 180")
         if((relativey < 0 and relativex > 0) or (relativey > 0 and relativex < 0)):
             angle += 90
+            print("added 90")
 
         return sideC, angle
     @staticmethod

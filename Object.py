@@ -73,17 +73,16 @@ class Object:
         lowFov = camera.angle + Angle(camera.fov[0])
         highFov = camera.angle + Angle(camera.fov[1])
 
-        #Problem - Tests if the angle is greater than low FOV OR less than high FOV. Both conditions need to take other part of FOV into account, they always return true
-        
-        # print(f"XXXXX Camera angle: {camera.angle} Object Angle: {angle} FOV: {camera.fov} Fov Angles ({lowFov}, {highFov}) passed test: ", end = "")
-
         if(lowFov < angle and angle < highFov):
+            print("1")
             return True
         
-        if(angle > lowFov and lowFov >= highFov):
+        if(angle > lowFov and highFov < lowFov):
+            print("2")
             return True
 
-        if(angle < highFov and highFov <= lowFov):
+        if(angle < highFov and highFov < lowFov):
+            print("3")
             return True
 
         return False

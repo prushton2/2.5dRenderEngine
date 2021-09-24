@@ -21,5 +21,4 @@ Objects = [
 ]
 
 camera = Camera(Vector2(0, 0), Angle(0), (-45, 45))
-for i in Objects:
-    print(i.getSidesInFOV(camera))
+print(Objects[1].isPointInFov(camera, Vector2(0, -1)))
