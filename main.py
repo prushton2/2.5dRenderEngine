@@ -45,20 +45,7 @@ def renderScreen(event):
     elif(event.char == "d"):
         camera.pos += Vector2(1, 0)
 
-    linesToRender = []
-    for i in Objects:
-        linesToRender += (i.getSidesInFOV(camera))
-    
-    pointsToRender = []
-    for i in linesToRender:
-        pointsToRender += i.getAllPoints(100)
 
-
-    renderPoints = DistanceCalculator.getAllDistances(pointsToRender, camera)
-
-
-    renderer = Render(renderPoints)
-    renderer.render(400, camera)
 
 
 

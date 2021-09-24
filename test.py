@@ -21,8 +21,3 @@ Objects = [
 ]
 camera = Camera(Vector2(0, 0), Angle(0), (-45, 45))
 
-# distance, angle = DistanceCalculator.getDistanceToCamera(Vector2(-3, 4), camera.pos)
-# angle = Angle(angle)
-# print(angle.toPosition())
-
-print(Objects[0].isPointInFov(camera, Vector2(-3, 4)))
