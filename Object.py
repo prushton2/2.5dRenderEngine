@@ -86,30 +86,3 @@ class Object:
             return True
 
         return False
-
-# camera = Camera(Vector2(0, 0), 0, (-45, 45))
-
-# sqaure = Object([
-#     Side(Vector2(1, 2), Vector2(1,4)),
-#     Side(Vector2(5, 4), Vector2(1,4)),
-#     Side(Vector2(5, 4), Vector2(5,2)),
-#     Side(Vector2(1, 2), Vector2(5,2))
-# ])
-
-# print("Points between 315 and 45 should pass")
-# failedTests = []
-# passedTests = []
-# for i in range(360):
-#     camera.angle = i
-#     predictedOutput = i > 315 or i < 45 
-#     output = sqaure.isPointInFov(camera, Vector2(1, 1))
-#     print(f"Testing {i} degrees:    Output is {output}, should be {predictedOutput}")
-#     if(output == predictedOutput):
-#         passedTests.append((i, output, predictedOutput))
-#     if(output != predictedOutput):
-#         failedTests.append((i, output, predictedOutput))
-# print(passedTests)
-# print("------------------")
-# print(failedTests)
-
-# print(sqaure.isPointInFov(camera, Vector2(-1, -1)))
