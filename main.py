@@ -48,9 +48,6 @@ def renderScreen(event):
     linesToRender = []
     for i in Objects:
         linesToRender += (i.getSidesInFOV(camera))
-
-        print(linesToRender)
-
     
     pointsToRender = []
     for i in linesToRender:
@@ -61,7 +58,7 @@ def renderScreen(event):
 
 
     renderer = Render(renderPoints)
-    renderer.render(100, camera)
+    renderer.render(400, camera)
 
 
 

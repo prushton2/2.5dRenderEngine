@@ -74,15 +74,12 @@ class Object:
         highFov = camera.angle + Angle(camera.fov[1])
 
         if(lowFov < angle and angle < highFov):
-            print("1")
             return True
         
         if(angle > lowFov and highFov < lowFov):
-            print("2")
             return True
 
         if(angle < highFov and highFov < lowFov):
-            print("3")
             return True
 
         return False
