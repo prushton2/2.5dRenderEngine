@@ -22,7 +22,7 @@ Objects = [
         Side(Vector2(-3, 4), Vector2(-1,4))
     ])
 ]
-camera = Camera(Vector2(0, 0), Angle(0), (Angle(-45), Angle(45)))
+camera = Camera(Vector2(0, 0), Angle(0), (Angle(315), Angle(45)))
 scalar = Scalar(100, 3.5)
 def main():
 
