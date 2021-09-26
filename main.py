@@ -22,8 +22,8 @@ Objects = [
         Side(Vector2(-3, 4), Vector2(-1,4))
     ])
 ]
-camera = Camera(Vector2(0, -1), Angle(0), (Angle(-45), Angle(45)))
-
+camera = Camera(Vector2(0, 0), Angle(0), (Angle(-45), Angle(45)))
+scalar = Scalar(100, 3.5)
 def main():
 
     root = Tk()
@@ -44,6 +44,15 @@ def renderScreen(event):
         camera.pos += Vector2(0, -1)
     elif(event.char == "d"):
         camera.pos += Vector2(1, 0)
+
+    linesToRender = []
+    for i in Objects:
+        linesToRender += i.getSidesInFov(camera)
+    
+    print(linesToRender)
+    
+    renderer = Render()
+    renderer.render(camera, scalar, linesToRender)
 
 
 
