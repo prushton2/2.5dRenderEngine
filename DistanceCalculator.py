@@ -1,6 +1,6 @@
 from Vector2 import *
+from Angle import *
 import math
-# from Object import *
 
 class DistanceCalculator:
 
@@ -22,7 +22,7 @@ class DistanceCalculator:
 
         angleC = math.degrees( math.acos( (a**2 + b**2 - c**2) / (2*a*b) ) )
 
-        return angleC if point.x > camera.pos.x else (180 - angleC) + 180
+        return Angle(angleC) if point.x > camera.pos.x else Angle((180 - angleC) + 180)
 
 
     @staticmethod

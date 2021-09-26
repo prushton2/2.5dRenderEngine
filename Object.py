@@ -17,11 +17,26 @@ class Side:
     def __repr__(self):
         return f"Side: ({self.point1}),  ({self.point2})"
 
-    
+    def isInFov(self, camera):
+        angle1 = DistanceCalculator.getAngleToCamera(camera, self.point1)
+        angle2 = DistanceCalculator.getAngleToCamera(camera, self.point2)
+
+        if(angle1 > camera.fov[0] and camera.fov[1] > angle1):
+            return True
+        elif(angle2 > camera.fov[0] and camera.fov[1] > angle2):
+            return True
+        return False
+
 
 
 class Object:
     def __init__(self, sides): #sides should be an array of Sides
         self.sides = sides
     
+    def getSidesInFov(self, camera):
+        lines = []
+        for i in self.sides:
+            if(i.isInFov(camera)):
+                lines.append(i)
+        return lines
     

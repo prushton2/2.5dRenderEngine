@@ -6,7 +6,7 @@ class Render():
     def __init__(self, distances):
         self.distances = distances
 
-    def render(self, camera, scalar, ):
+    def render(self, camera, scalar):
 
         s = tl.getscreen()
         t = tl.Turtle()
