@@ -18,13 +18,9 @@ class DistanceCalculator:
     def getAngleToCamera(camera, point):
         a = 1
         b = DistanceCalculator.getDistance(camera.pos, point)
-        c = DistanceCalculator.getDistance(point, Vector2(0, 1))
+        c = DistanceCalculator.getDistance(point, camera.pos + Vector2(0, 1))
 
         angleC = math.degrees( math.acos( (a**2 + b**2 - c**2) / (2*a*b) ) )
 
         return Angle(angleC) if point.x > camera.pos.x else Angle((180 - angleC) + 180)
 
-
-    @staticmethod
-    def getAllDistances(camera, points): 
-        pass

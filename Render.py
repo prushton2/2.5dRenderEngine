@@ -29,7 +29,7 @@ class Render():
         for i in lines:
             angle1 = DistanceCalculator.getAngleToCamera(camera, i.point1)
             angle2 = DistanceCalculator.getAngleToCamera(camera, i.point2)
-            print(angle1, angle2)
+            # print(angle1, angle2)
             angle1 -= camera.angle
             angle2 -= camera.angle
             # print(angle1, angle2)
