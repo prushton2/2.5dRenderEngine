@@ -20,4 +20,3 @@ Objects = [
     ])
 ]
 camera = Camera(Vector2(0, 0), Angle(0), (-45, 45))
-
