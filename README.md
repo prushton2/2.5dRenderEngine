@@ -20,5 +20,8 @@ Object([
 ```
 This is  a basic cube. You need to define both coordinates of each side. The coordinates are redundant, I plan on making a more abstract polygon instancer
 
-### Im bad at this
-I need to completely rewrite the project. The foundation was good, however I did not properly integrate support for angles. I will rewrite this project and include support for turning and a customizable FOV
+### Changing Camera Settings
+In main.py, the camera object is located below the list of objects. These are the parameters:
+* Camera Position
+* Camera Angle
+* Tuple of the two angles that determine FOV
