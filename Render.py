@@ -23,9 +23,8 @@ class Render():
         t.speed("fastest")
         tl.tracer(0,0)
 
+        
         t.pencolor("black")
-        
-        
         for i in lines:
             angle1 = DistanceCalculator.getAngleToCamera(camera, i.point1)
             angle2 = DistanceCalculator.getAngleToCamera(camera, i.point2)
@@ -43,13 +42,13 @@ class Render():
             angle2 = angle2 * scalar.widthScalar
             # print(angle1, angle2)
 
-
             point1 = Vector2(angle1, DistanceCalculator.getDistance(camera.pos, i.point1)/2)
             point2 = Vector2(angle2, DistanceCalculator.getDistance(camera.pos, i.point2)/2)
             # print(point1, point2)
+            
+            
             point1.y = 1/point1.y * scalar.heightScalar
             point2.y = 1/point2.y * scalar.heightScalar
-            # print(point1, point2)
 
             
             t.penup()
@@ -62,8 +61,29 @@ class Render():
             t.goto(point1.x, point1.y)
             t.end_fill()
 
+        size = s.screensize()
 
+        t.pencolor("white")
+        t.penup()
+        t.goto(-1*size[0], size[1])
+        t.fillcolor("white")
+        t.begin_fill()
+        t.pendown()
+        t.goto((camera.fov[0].angle - 360)*scalar.widthScalar, size[1])
+        t.goto((camera.fov[0].angle - 360)*scalar.widthScalar, -1*size[1])
+        t.goto(-1*size[0], -1*size[1])
+        t.end_fill()
        
+        t.penup()
+        t.goto(size[0], size[1])
+        t.fillcolor("white")
+        t.begin_fill()
+        t.pendown()
+        t.goto((camera.fov[1].angle)*scalar.widthScalar, size[1])
+        t.goto((camera.fov[1].angle)*scalar.widthScalar, -1*size[1])
+        t.goto(size[0], -1*size[1])
+        t.end_fill()
+
         t.penup()
         tl.update()
         tl.done()
