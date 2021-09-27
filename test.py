@@ -19,10 +19,9 @@ Objects = [
         Side(Vector2(-3, 4), Vector2(-1,4))
     ])
 ]
-camera = Camera(Vector2(0, 0), Angle(0), (-45, 45))
+camera = Camera(Vector2(0, 0), Angle(0), (Angle(315), Angle(45)))
+scalar = Scalar(100, 3.5)
+print(Objects[0].getSidesInFov(camera))
+print(DistanceCalculator.getAngleToCamera(camera, Vector2(1,2)))
+print(Objects[0].sides[0].isInFov(camera))
 
-# distance, angle = DistanceCalculator.getDistanceToCamera(Vector2(-3, 4), camera.pos)
-# angle = Angle(angle)
-# print(angle.toPosition())
-
-print(Objects[0].isPointInFov(camera, Vector2(-3, 4)))

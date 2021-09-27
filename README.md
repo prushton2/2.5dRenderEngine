@@ -18,7 +18,7 @@ Object([
 ])
 
 ```
-This is  a basic cube. You need to define both coordinates of each side. The coordinates are redundant, <br> I plan on making a more abstract polygon instancer
+This is  a basic cube. You need to define both coordinates of each side. The coordinates are redundant, I plan on making a more abstract polygon instancer
 
-### Field of View
-Currently, FOV is defined by 2 things, and is tricky to change. There is the FOV tuple in main.py, which contains 2 slopes. This is the input FOV. If a point is above both slopes, it will be rendered. The output FOV is defined by 2 angles and is located in Render.py. The wider this is, the wider the output screen. This is finnicky, I still need to properly write the FOV in.
+### Im bad at this
+I need to completely rewrite the project. The foundation was good, however I did not properly integrate support for angles. I will rewrite this project and include support for turning and a customizable FOV
