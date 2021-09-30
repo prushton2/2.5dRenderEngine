@@ -30,15 +30,11 @@ def renderScreen():
     linesToRender = []
     for i in Objects:
         linesToRender += i.getSidesInFov(camera)
-    
-    # print(linesToRender)
-   
+       
     renderer = Render()
     renderer.render(camera, scalar, linesToRender)
 
 def moveCamera(event):
-
-    
 
     if(event.char == "j"):
         camera.angle -= Angle(15)
@@ -59,17 +55,13 @@ def moveCamera(event):
     yIncrease = ((yangle.angle / 180) * 2) - 1
 
     if(event.char == "w"):
-        camera.pos = camera.pos + Vector2(xIncrease, -yIncrease)
+        camera.pos += Vector2(xIncrease, -yIncrease)
     elif(event.char == "a"):
-        camera.pos = camera.pos + Vector2(yIncrease, xIncrease)
+        camera.pos += Vector2(yIncrease, xIncrease)
     elif(event.char == "s"):
-        camera.pos = camera.pos + Vector2(-xIncrease, yIncrease)
+        camera.pos += Vector2(-xIncrease, yIncrease)
     elif(event.char == "d"):
-        camera.pos = camera.pos + Vector2(-yIncrease, -xIncrease)
-        
-
-    print(xIncrease, yIncrease)
-    print(xangle, yangle)
+        camera.pos += Vector2(-yIncrease, -xIncrease)
 
     renderScreen()
 
