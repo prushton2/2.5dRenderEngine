@@ -21,11 +21,15 @@ class Side:
         angle1 = DistanceCalculator.getAngleToCamera(camera, self.point1)
         angle2 = DistanceCalculator.getAngleToCamera(camera, self.point2)
 
-        camera.fov = (camera.fov[0] + camera.angle, camera.fov[1] + camera.angle)
+        # print(f"FOV: ({camera.fov[0]}, {camera.fov[1]})")
+        # print(f"Point1: ({self.point1}, {angle1})")
+        # print(f"Point2: ({self.point2}, {angle2})")
 
-        if(angle1 > camera.fov[0] and camera.fov[1] > angle1):
+        fov = (camera.fov[0] + camera.angle, camera.fov[1] + camera.angle)
+
+        if(angle1 > fov[0] and fov[1] > angle1):
             return True
-        elif(angle2 > camera.fov[0] and camera.fov[1] > angle2):
+        elif(angle2 > fov[0] and fov[1] > angle2):
             return True
         return False
 
