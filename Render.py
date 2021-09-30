@@ -9,8 +9,8 @@ class Scalar():
 
 #Currently plan on using turtle. Pretty fast load and it allows pixel per pixel drawing.
 class Render():
-    def __init__(self):
-        pass
+    def __init__(self, renderDebugInfo):
+        self.renderDebugInfo = renderDebugInfo
     def render(self, camera, scalar, lines):
 
         t = tl.Turtle()
@@ -85,6 +85,23 @@ class Render():
         t.goto((camera.fov[1].angle)*scalar.widthScalar, -1*size[1])
         t.goto(size[0], -1*size[1])
         t.end_fill()
+
+        t.penup()
+
+        t.pencolor("black")
+        t.goto(-1*size[0]+30, size[1]-10)
+        t.pendown()
+        t.write(f"X Pos: {camera.pos.x}")
+        t.penup()
+        t.goto(-1*size[0]+30, size[1]-20)
+        t.pendown()
+        t.write(f"Y Pos: {camera.pos.y}")
+        t.penup()
+        t.goto(-1*size[0]+30, size[1]-30)
+        t.pendown()
+        t.write(f" Angle: {camera.angle.angle}")
+        t.penup()
+
 
         t.penup()
         tl.update()
