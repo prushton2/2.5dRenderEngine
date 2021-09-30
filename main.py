@@ -63,7 +63,7 @@ def moveCamera(event):
     elif(event.char == "a"):
         camera.pos = camera.pos + Vector2(yIncrease, xIncrease)
     elif(event.char == "s"):
-        camera.pos = camera.pos + Vector2(xIncrease, yIncrease)
+        camera.pos = camera.pos + Vector2(-xIncrease, yIncrease)
     elif(event.char == "d"):
         camera.pos = camera.pos + Vector2(-yIncrease, -xIncrease)
         
