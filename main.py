@@ -24,6 +24,7 @@ Objects = [
 ]
 camera = Camera(Vector2(0, 0), Angle(0), (Angle(300), Angle(60))) #The distance between the FOV angles must be less than 180 degrees
 scalar = Scalar(100, 3.5)
+renderer = Render()
 
 def renderScreen():
 
@@ -31,14 +32,13 @@ def renderScreen():
     for i in Objects:
         linesToRender += i.getSidesInFov(camera)
        
-    renderer = Render()
     renderer.render(camera, scalar, linesToRender)
 
 def moveCamera(event):
 
-    if(event.char == "j"):
+    if(event.char == "j" or event.char == "q"):
         camera.angle -= Angle(15)
-    elif(event.char == "l"):
+    elif(event.char == "l" or event.char == "e"):
         camera.angle += Angle(15)
 
     if(camera.angle > Angle(269)):

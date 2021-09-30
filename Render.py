@@ -13,10 +13,10 @@ class Render():
         pass
     def render(self, camera, scalar, lines):
 
+        t = tl.Turtle()
         s = tl.getscreen()
         
         s.clearscreen()
-        t = tl.Turtle()
 
 
         t.hideturtle()

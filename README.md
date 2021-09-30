@@ -30,4 +30,4 @@ In main.py, the camera object is located below the list of objects. These are th
 * Click on the tkinter window
 * Hit any button
 * WASD are movement
-* J & L are look left & right
+* J & L or Q & E are look left & right
