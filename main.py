@@ -36,10 +36,12 @@ def renderScreen():
 
 def moveCamera(event):
 
+    lookSpeed = Angle(15) # Look speed modifier
+
     if(event.char == "j" or event.char == "q"):
-        camera.angle -= Angle(15)
+        camera.angle -= lookSpeed
     elif(event.char == "l" or event.char == "e"):
-        camera.angle += Angle(15)
+        camera.angle += lookSpeed
 
     if(camera.angle > Angle(269)):
         xangle = Angle(90) + camera.angle
@@ -53,6 +55,9 @@ def moveCamera(event):
     
     xIncrease = ((xangle.angle / 180) * 2) - 1
     yIncrease = ((yangle.angle / 180) * 2) - 1
+
+    xIncrease *= 1 #Movement speed modifiers
+    yIncrease *= 1
 
     if(event.char == "w"):
         camera.pos += Vector2(xIncrease, -yIncrease)

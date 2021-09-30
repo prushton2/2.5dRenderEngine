@@ -11,22 +11,23 @@ class Scalar():
 class Render():
     def __init__(self, renderDebugInfo):
         self.renderDebugInfo = renderDebugInfo
+        self.t = tl.Turtle()
+        self.s = tl.getscreen()
     def render(self, camera, scalar, lines):
 
-        t = tl.Turtle()
-        s = tl.getscreen()
+
         
-        s.clearscreen()
+        self.s.clearscreen()
 
 
-        t.hideturtle()
-        t.speed("fastest")
+        self.t.hideturtle()
+        self.t.speed("fastest")
         tl.tracer(0,0)
 
-        t.left(90)
+        self.t.left(90)
 
         
-        t.pencolor("black")
+        self.t.pencolor("black")
         for i in lines:
             angle1 = DistanceCalculator.getAngleToCamera(camera, i.point1)
             angle2 = DistanceCalculator.getAngleToCamera(camera, i.point2)
@@ -52,57 +53,57 @@ class Render():
             point1.y = 1/point1.y * scalar.heightScalar
             point2.y = 1/point2.y * scalar.heightScalar
 
-            
-            t.penup()
-            t.goto(point1.x, point1.y)
-            t.pendown()
-            t.begin_fill()
-            t.goto(point2.x, point2.y)
-            t.goto(point2.x, -1*point2.y)
-            t.goto(point1.x, -1*point1.y)
-            t.goto(point1.x, point1.y)
-            t.end_fill()
+            self.t.fillcolor("black")
+            self.t.penup()
+            self.t.goto(point1.x, point1.y)
+            self.t.pendown()
+            self.t.begin_fill()
+            self.t.goto(point2.x, point2.y)
+            self.t.goto(point2.x, -1*point2.y)
+            self.t.goto(point1.x, -1*point1.y)
+            self.t.goto(point1.x, point1.y)
+            self.t.end_fill()
 
-        size = s.screensize()
+        size = self.s.screensize()
 
-        t.pencolor("white")
-        t.penup()
-        t.goto(-1*size[0], size[1])
-        t.fillcolor("white")
-        t.begin_fill()
-        t.pendown()
-        t.goto((camera.fov[0].angle - 360)*scalar.widthScalar, size[1])
-        t.goto((camera.fov[0].angle - 360)*scalar.widthScalar, -1*size[1])
-        t.goto(-1*size[0], -1*size[1])
-        t.end_fill()
+        self.t.pencolor("white")
+        self.t.penup()
+        self.t.goto(-1*size[0], size[1])
+        self.t.fillcolor("white")
+        self.t.begin_fill()
+        self.t.pendown()
+        self.t.goto((camera.fov[0].angle - 360)*scalar.widthScalar, size[1])
+        self.t.goto((camera.fov[0].angle - 360)*scalar.widthScalar, -1*size[1])
+        self.t.goto(-1*size[0], -1*size[1])
+        self.t.end_fill()
        
-        t.penup()
-        t.goto(size[0], size[1])
-        t.fillcolor("white")
-        t.begin_fill()
-        t.pendown()
-        t.goto((camera.fov[1].angle)*scalar.widthScalar, size[1])
-        t.goto((camera.fov[1].angle)*scalar.widthScalar, -1*size[1])
-        t.goto(size[0], -1*size[1])
-        t.end_fill()
+        self.t.penup()
+        self.t.goto(size[0], size[1])
+        self.t.fillcolor("white")
+        self.t.begin_fill()
+        self.t.pendown()
+        self.t.goto((camera.fov[1].angle)*scalar.widthScalar, size[1])
+        self.t.goto((camera.fov[1].angle)*scalar.widthScalar, -1*size[1])
+        self.t.goto(size[0], -1*size[1])
+        self.t.end_fill()
 
-        t.penup()
+        self.t.penup()
 
-        t.pencolor("black")
-        t.goto(-1*size[0]+30, size[1]-10)
-        t.pendown()
-        t.write(f"X Pos: {camera.pos.x}")
-        t.penup()
-        t.goto(-1*size[0]+30, size[1]-20)
-        t.pendown()
-        t.write(f"Y Pos: {camera.pos.y}")
-        t.penup()
-        t.goto(-1*size[0]+30, size[1]-30)
-        t.pendown()
-        t.write(f" Angle: {camera.angle.angle}")
-        t.penup()
+        self.t.pencolor("black")
+        self.t.goto(-1*size[0]+30, size[1]-10)
+        self.t.pendown()
+        self.t.write(f"X Pos: {camera.pos.x}")
+        self.t.penup()
+        self.t.goto(-1*size[0]+30, size[1]-20)
+        self.t.pendown()
+        self.t.write(f"Y Pos: {camera.pos.y}")
+        self.t.penup()
+        self.t.goto(-1*size[0]+30, size[1]-30)
+        self.t.pendown()
+        self.t.write(f" Angle: {camera.angle.angle}")
+        self.t.penup()
 
 
-        t.penup()
+        self.t.penup()
         tl.update()
         tl.done()
