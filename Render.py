@@ -14,14 +14,16 @@ class Render():
     def render(self, camera, scalar, lines):
 
         s = tl.getscreen()
+        
         s.clearscreen()
         t = tl.Turtle()
 
-        t.hideturtle()
 
-        t.left(90)
+        t.hideturtle()
         t.speed("fastest")
         tl.tracer(0,0)
+
+        t.left(90)
 
         
         t.pencolor("black")

@@ -22,7 +22,7 @@ Objects = [
         Side(Vector2(-3, 4), Vector2(-1,4))
     ])
 ]
-camera = Camera(Vector2(0, 0), Angle(45), (Angle(315), Angle(45)))
+camera = Camera(Vector2(0, 0), Angle(0), (Angle(300), Angle(60))) #The distance between the FOV angles must be less than 180 degrees
 scalar = Scalar(100, 3.5)
 
 def renderScreen():
@@ -31,15 +31,54 @@ def renderScreen():
     for i in Objects:
         linesToRender += i.getSidesInFov(camera)
     
-    print(linesToRender)
+    # print(linesToRender)
    
     renderer = Render()
     renderer.render(camera, scalar, linesToRender)
 
+def moveCamera(event):
+
+    
+
+    if(event.char == "j"):
+        camera.angle -= Angle(15)
+    elif(event.char == "l"):
+        camera.angle += Angle(15)
+
+    if(camera.angle > Angle(269)):
+        xangle = Angle(90) + camera.angle
+    else:
+        xangle = Angle(270) - camera.angle
+
+    if(camera.angle > Angle(359)):
+        yangle = camera.angle
+    else:
+        yangle = Angle(360) - camera.angle
+    
+    xIncrease = ((xangle.angle / 180) * 2) - 1
+    yIncrease = ((yangle.angle / 180) * 2) - 1
+
+    if(event.char == "w"):
+        camera.pos = camera.pos + Vector2(xIncrease, -yIncrease)
+    elif(event.char == "a"):
+        camera.pos = camera.pos + Vector2(yIncrease, xIncrease)
+    elif(event.char == "s"):
+        camera.pos = camera.pos + Vector2(xIncrease, yIncrease)
+    elif(event.char == "d"):
+        camera.pos = camera.pos + Vector2(-yIncrease, -xIncrease)
+        
+
+    print(xIncrease, yIncrease)
+    print(xangle, yangle)
+
+    renderScreen()
 
 
 def main():
-    renderScreen()
+    root = Tk()
+    root.geometry('300x200')
+    root.bind('<KeyPress>', moveCamera)
+    root.mainloop()
 
 
 if (__name__ == "__main__"):

@@ -25,3 +25,9 @@ In main.py, the camera object is located below the list of objects. These are th
 * Camera Position
 * Camera Angle
 * Tuple of the two angles that determine FOV
+
+### How to move
+* Click on the tkinter window
+* Hit any button
+* WASD are movement
+* J & L are look left & right
