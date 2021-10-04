@@ -9,8 +9,9 @@ class Scalar():
 
 #Currently plan on using turtle. Pretty fast load and it allows pixel per pixel drawing.
 class Render():
-    def __init__(self, renderDebugInfo):
+    def __init__(self, renderDebugInfo=False, drawSlowly=False):
         self.renderDebugInfo = renderDebugInfo
+        self.drawSlowly = drawSlowly
         self.t = tl.Turtle()
         self.s = tl.getscreen()
     def render(self, camera, scalar, lines):
@@ -18,11 +19,12 @@ class Render():
 
         
 
+        self.t.hideturtle()
         self.t.clear()
 
-        self.t.hideturtle()
-        self.t.speed("fastest")
-        tl.tracer(0,0)
+        if(not self.drawSlowly):
+            self.t.speed("fastest")
+            tl.tracer(0,0)
 
         self.t.left(90)
 
@@ -49,20 +51,26 @@ class Render():
             point2 = Vector2(angle2, DistanceCalculator.getDistance(camera.pos, i.point2)/2)
             # print(point1, point2)
             
-            
-            point1.y = 1/point1.y * scalar.heightScalar
-            point2.y = 1/point2.y * scalar.heightScalar
-
+            try:
+                point1.y = 1/point1.y * scalar.heightScalar
+            except:
+                point1.y *= scalar.heightScalar
+            try:
+                point2.y = 1/point2.y * scalar.heightScalar
+            except:
+                point2.y *= scalar.heightScalar
             self.t.fillcolor("black")
             self.t.penup()
             self.t.goto(point1.x, point1.y)
             self.t.pendown()
-            self.t.begin_fill()
+            if(not self.drawSlowly):
+                self.t.begin_fill()
             self.t.goto(point2.x, point2.y)
             self.t.goto(point2.x, -1*point2.y)
             self.t.goto(point1.x, -1*point1.y)
             self.t.goto(point1.x, point1.y)
-            self.t.end_fill()
+            if(not self.drawSlowly):
+                self.t.end_fill()
 
         size = [750, 750]
 

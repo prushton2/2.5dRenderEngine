@@ -31,7 +31,7 @@ Objects = [
 ]
 camera = Camera(Vector2(0, 0), Angle(0), (Angle(300), Angle(60))) #The distance between the FOV angles must be less than 180 degrees
 scalar = Scalar(100, 3.5)
-renderer = Render(renderDebugInfo=True)
+renderer = Render(renderDebugInfo=True, drawSlowly=False)
 
 def renderScreen():
 
