@@ -80,7 +80,8 @@ def moveCamera(event):
 
 def main():
     root = Tk()
-    root.geometry('300x200')
+    root.title("Click this window to move")
+    root.geometry('325x100')
     root.bind('<KeyPress>', moveCamera)
     root.mainloop()
 
