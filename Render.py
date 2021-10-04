@@ -17,8 +17,8 @@ class Render():
 
 
         
-        self.s.clearscreen()
 
+        self.t.clear()
 
         self.t.hideturtle()
         self.t.speed("fastest")
