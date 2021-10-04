@@ -64,7 +64,7 @@ class Render():
             self.t.goto(point1.x, point1.y)
             self.t.end_fill()
 
-        size = self.s.screensize()
+        size = [750, 750]
 
         self.t.pencolor("white")
         self.t.penup()
@@ -89,16 +89,17 @@ class Render():
 
         self.t.penup()
         if(self.renderDebugInfo):
+            screensize = self.s.screensize()
             self.t.pencolor("black")
-            self.t.goto(-1*size[0]+30, size[1]-10)
+            self.t.goto(-1*screensize[0]+30, screensize[1]-10)
             self.t.pendown()
             self.t.write(f"X Pos: {camera.pos.x}")
             self.t.penup()
-            self.t.goto(-1*size[0]+30, size[1]-20)
+            self.t.goto(-1*screensize[0]+30, screensize[1]-20)
             self.t.pendown()
             self.t.write(f"Y Pos: {camera.pos.y}")
             self.t.penup()
-            self.t.goto(-1*size[0]+30, size[1]-30)
+            self.t.goto(-1*screensize[0]+30, screensize[1]-30)
             self.t.pendown()
             self.t.write(f" Angle: {camera.angle.angle}")
             self.t.penup()
