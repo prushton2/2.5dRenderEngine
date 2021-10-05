@@ -46,3 +46,11 @@ class Object:
                 lines.append(i)
         return lines
     
+
+class Polygon(Object):
+    def __init__(self, points): #Points should be a list of Vector2s of the points of the shape
+        self.points = points
+        self.sides = []
+        for i,j in enumerate(points):
+            self.sides.append(Side(points[i], points[i-1]))
+

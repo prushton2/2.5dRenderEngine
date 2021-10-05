@@ -10,15 +10,16 @@ Grouping multiple sides together can create an object.
 Example of an Object:
 ```python
 
-Object([
-  Side(Vector2(1, 2), Vector2(1,4)),
-  Side(Vector2(5, 4), Vector2(1,4)),
-  Side(Vector2(5, 4), Vector2(5,2)),
-  Side(Vector2(1, 2), Vector2(5,2))
+Polygon([
+  Vector2(1, 2),
+  Vector2(1, 4),
+  Vector2(5, 4),
+  Vector2(5, 2)
 ])
 
 ```
-This is  a basic cube. You need to define both coordinates of each side. The coordinates are redundant, I plan on making a more abstract polygon instancer
+This is a basic cube. You define each point in an object, and make sure that the points are supposed to connect to the points necxt to each other in the list
+
 
 ### Changing Camera Settings
 In main.py, the camera object is located below the list of objects. These are the parameters:
