@@ -53,4 +53,7 @@ class Polygon(Object):
         self.sides = []
         for i,j in enumerate(points):
             self.sides.append(Side(points[i], points[i-1]))
+    def update(self):
+        for i,j in enumerate(self.points):
+            self.sides.append(Side(self.points[i], self.points[i-1]))
 
