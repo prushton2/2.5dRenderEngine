@@ -3,9 +3,13 @@
 
 class Vector2:
     def __init__(self, x, y):
-        self.x = x
-        self.y = y
+        self.x = float(x)
+        self.y = float(y)
     
+    def toFloat(self):
+        self.x = float(self.x)
+        self.y = float(self.y)
+
     def __repr__(self):
         return f"Vector2: {self.x}, {self.y}"
 
