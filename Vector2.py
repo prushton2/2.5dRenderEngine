@@ -3,8 +3,8 @@
 
 class Vector2:
     def __init__(self, x, y):
-        self.x = float(x)
-        self.y = float(y)
+        self.x = x
+        self.y = y
     
     def toFloat(self):
         self.x = float(self.x)
@@ -25,3 +25,5 @@ class Vector2:
     def __truediv__(self, other):
         return Vector2(self.x / other.x, self.y / other.y)
 
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y

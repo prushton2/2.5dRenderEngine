@@ -34,9 +34,20 @@ class Render():
             angle1 = DistanceCalculator.getAngleToCamera(camera, i.point1)
             angle2 = DistanceCalculator.getAngleToCamera(camera, i.point2)
             # print(angle1, angle2)
+
+            #Tests if the side goes through the player, and doesnt render it if it does
+            if(abs((angle1 - angle2).angle) == 180):
+                continue
+
+            i.point1.toFloat()
+            i.point2.toFloat()
+
+            #tests if the player is standing on a point in a side and doesnt render the side if so
+            if(i.point1 == camera.pos or i.point2 == camera.pos):
+                continue
+
             angle1 -= camera.angle
             angle2 -= camera.angle
-            # print(angle1, angle2)
             
             angle1 = angle1.angle-360 if angle1.angle > 180 else angle1.angle
             angle2 = angle2.angle-360 if angle2.angle > 180 else angle2.angle

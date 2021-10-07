@@ -37,7 +37,7 @@ def renderScreen():
     linesToRender = []
     for i in Objects:
         linesToRender += i.getSidesInFov(camera)
-       
+      
     renderer.render(camera, scalar, linesToRender)
 
 def moveCamera(event):
