@@ -25,13 +25,9 @@ class Side:
         # print(f"Point1: ({self.point1}, {angle1})")
         # print(f"Point2: ({self.point2}, {angle2})")
 
-        fov = (camera.fov[0] + camera.angle, camera.fov[1] + camera.angle)
+        lowLimit = camera.angle - Angle(90)
 
-        if(angle1 > fov[0] and fov[1] > angle1):
-            return True
-        elif(angle2 > fov[0] and fov[1] > angle2):
-            return True
-        return False
+        return angle1 > lowLimit or angle2 > lowLimit #If either angle is within 90 degrees of the camera's center
 
 
 
@@ -53,4 +49,7 @@ class Polygon(Object):
         self.sides = []
         for i,j in enumerate(points):
             self.sides.append(Side(points[i], points[i-1]))
+    def update(self):
+        for i,j in enumerate(self.points):
+            self.sides.append(Side(self.points[i], self.points[i-1]))
 
