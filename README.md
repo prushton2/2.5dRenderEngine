@@ -18,7 +18,7 @@ Polygon([
 ])
 
 ```
-This is a basic cube. You define each point in an object, and make sure that the points are supposed to connect to the points necxt to each other in the list
+This is a basic cube. You define each point in an object, and make sure that the points are supposed to connect to the points next to each other in the list
 
 
 ### Changing Camera Settings
